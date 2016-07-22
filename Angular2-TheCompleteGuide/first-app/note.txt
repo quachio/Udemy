@@ -1,0 +1,36 @@
+DATABINDING METHODS
+
+- String Interpolation
+  {{ Expression resolving to a string }}
+
+- Property Binding -> send data to DOM property
+  <button [disabled]="expression resolving to required value type">
+
+- Event Binding -> listen for event from DOM
+  <button (click)="expression handling the event">
+
+- Two-Way Binding -> both property and event binding
+  <input [(ngModel)]="bound model (e.g object)">
+
+DOM Properties
+  <img [src]="...">
+  <img (click)="...">
+
+Directives Properties
+  <div [ngClass]="...">
+  <div (ngSubmit)="...">
+
+Component Properties
+  <cmp [initObj]="...">
+  <cmp [rndEvent]="...">
+
+CUSTOM BINDINGS
+
+- Property Binding
+  -> @Input() propertyName: string;
+  -> [] tells property binding is being use
+
+- Event Binding
+  -> @Output eventName = new EventEmitter();
+
+COMPONENT LIFECYCLE
