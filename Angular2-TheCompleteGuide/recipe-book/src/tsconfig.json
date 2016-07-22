@@ -15,9 +15,13 @@
     "target": "es5",
     "inlineSources": true
   },
-
+  "filesGlob": [
+    "**/*.ts",
+    "!node_modules/**/*.ts"
+  ],
   "files": [
     "main.ts",
-    "typings.d.ts"
+    "typings.d.ts",
+    "system-config.ts"
   ]
 }
