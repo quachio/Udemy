@@ -7,8 +7,7 @@ import { Recipe }                   from '../recipe';
   templateUrl: 'recipe-detail.component.html',
 })
 export class RecipeDetailComponent implements OnInit {
-  @Input()
-  selectedRecipe: Recipe;
+  @Input() selectedRecipe: Recipe; // Allow other component to pass data here
 
   constructor() { }
 
