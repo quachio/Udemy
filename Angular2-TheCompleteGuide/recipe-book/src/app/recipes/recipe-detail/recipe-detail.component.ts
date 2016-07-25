@@ -8,10 +8,12 @@ import { Recipe }                   from '../recipe';
 })
 export class RecipeDetailComponent implements OnInit {
   @Input() selectedRecipe: Recipe; // Allow other component to pass data here
+  @Input() switch: boolean;
 
   constructor() { }
 
   ngOnInit() {
+    this.switch = false;
   }
 
 }

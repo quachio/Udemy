@@ -7,9 +7,7 @@ import { Recipe }            from '../recipe';
   templateUrl: 'recipe-item.component.html',
 })
 export class RecipeItemComponent implements OnInit {
-  @Input() // set recipe from the RecipeListComponent
-  recipe: Recipe;
-
+  @Input() recipe: Recipe;
   recipeId: number;
 
   constructor() { }
