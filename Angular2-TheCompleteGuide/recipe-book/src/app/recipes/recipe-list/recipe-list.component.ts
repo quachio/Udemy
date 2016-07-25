@@ -20,32 +20,20 @@ export class RecipeListComponent implements OnInit {
 
   @Output() recipeSelected = new EventEmitter<Recipe>(); // Custom event
   @Output() onSelect= new EventEmitter<boolean>();
-  
-  @Input() switch = false;
-  recipe = new Recipe('Dummy', 'Dummy', 'https://octodex.github.com/images/privateinvestocat.jpg');
 
-  /**
-   * [constructor description]
-   * @return {[type]} [description]
-   */
+  @Input() switch = false;
+
   constructor() { }
 
-  /**
-   * [ngOnInit description]
-   * @return {[type]} [description]
-   */
   ngOnInit() {
   }
 
-  /**
-   * [onSelected description]
-   * @param  {Recipe} recipe [description]
-   * @return {[type]}        [description]
-   */
   onSelected(recipe: Recipe) {
     console.log('onSelected');
+    this.switch = !this.switch;
+    console.log(this.switch);
     this.recipeSelected.emit(recipe); // -> $event
-    this.onSelect.emit(!this.switch);
+    this.onSelect.emit(this.switch);
   }
 
 }
