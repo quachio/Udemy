@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
-import { Recipe                                  } from '../recipe';
-import { RecipeItemComponent                     } from './recipe-item.component';
+import { Recipe                                         } from '../recipe';
+import { RecipeItemComponent                            } from './recipe-item.component';
 
 @Component({
   moduleId:    module.id,
@@ -19,9 +19,6 @@ export class RecipeListComponent implements OnInit {
   ];
 
   @Output() recipeSelected = new EventEmitter<Recipe>(); // Custom event
-  @Output() onSelect= new EventEmitter<boolean>();
-
-  @Input() switch = false;
 
   constructor() { }
 
@@ -30,10 +27,7 @@ export class RecipeListComponent implements OnInit {
 
   onSelected(recipe: Recipe) {
     console.log('onSelected');
-    this.switch = !this.switch;
-    console.log(this.switch);
     this.recipeSelected.emit(recipe); // -> $event
-    this.onSelect.emit(this.switch);
   }
 
 }

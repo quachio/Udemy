@@ -11,11 +11,9 @@ import { Recipe }                      from './recipe';
 })
 export class RecipesComponent implements OnInit {
   selectedRecipe: Recipe;
-  @Input() switch = false;
 
   constructor() { }
 
   ngOnInit() {
   }
-
 }
