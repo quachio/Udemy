@@ -1,7 +1,7 @@
-import { Component, OnInit, Input }    from '@angular/core';
-import { RecipeListComponent }         from './recipe-list';
-import { RecipeDetailComponent}        from './recipe-detail';
-import { Recipe }                      from './recipe';
+import { Component, OnInit }    from '@angular/core';
+import { RecipeListComponent }  from './recipe-list';
+import { RecipeDetailComponent} from './recipe-detail';
+import { Recipe }               from './recipe';
 
 @Component({
   moduleId:    module.id,
