@@ -5,7 +5,12 @@ import { ROUTER_DIRECTIVES } from "@angular/router";
   moduleId:    module.id,
   selector:    'app-root',
   templateUrl: 'app.component.html',
-  directives:  [ ROUTER_DIRECTIVES ]
+  directives:  [ ROUTER_DIRECTIVES ],
+  styles: [`
+    .active {
+      border: 1px solid red;
+    }
+  `]
 })
 export class AppComponent {
 }
