@@ -1,14 +1,14 @@
 import { Component                       } from '@angular/core';
+import { ROUTER_DIRECTIVES               } from '@angular/router';
 import { HeaderComponent                 } from './header.component';
-import { RecipesComponent, RecipeService } from './recipes';
-import { ShoppingListComponent           } from './shopping-list';
+import { RecipeService                   } from './recipes/recipe.service';
 
 @Component({
   moduleId:    module.id,
   selector:    'quachio-root',
   templateUrl: 'app.component.html',
-  directives:  [ HeaderComponent, RecipesComponent, ShoppingListComponent ],
-  providers:   [ RecipeService]
+  directives:  [ HeaderComponent, ROUTER_DIRECTIVES],
+  providers:   [ RecipeService ]
 })
 export class AppComponent {
 }
