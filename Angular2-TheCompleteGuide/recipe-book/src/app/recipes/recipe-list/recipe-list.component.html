@@ -1,13 +1,13 @@
 <!-- RecipeListComponent -->
 <div class="row">
   <div class="col-xs-12">
-    <a href="" class="btn btn-success">New Recipe</a>
+    <a class="btn btn-success" [routerLink]="['new']">New Recipe</a> <!-- exmaple of relative, no slash, just append it the end -->
   </div>
 </div>
 <div class="row">
   <div class="col-xs-12">
     <ul class="list-group">
-      <quachio-recipe-item *ngFor="let recipe of recipes" [recipe]="recipe" (click)="onSelected(recipe)"></quachio-recipe-item>
+      <quachio-recipe-item *ngFor="let recipe of recipes; let i = index" [recipe]="recipe" [recipeId]="i"></quachio-recipe-item>
     </ul>
   </div>
 </div>

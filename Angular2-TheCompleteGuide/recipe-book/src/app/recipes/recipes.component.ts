@@ -1,19 +1,13 @@
-import { Component, OnInit }    from '@angular/core';
+import { Component           }  from '@angular/core';
+import { ROUTER_DIRECTIVES   }  from '@angular/router';
 import { RecipeListComponent }  from './recipe-list';
-import { RecipeDetailComponent} from './recipe-detail';
-import { Recipe }               from './recipe';
 
 @Component({
   moduleId:    module.id,
   selector:    'quachio-recipes',
   templateUrl: 'recipes.component.html',
-  directives:  [ RecipeListComponent, RecipeDetailComponent ]
+  directives:  [ RecipeListComponent,  ROUTER_DIRECTIVES ],
+
 })
-export class RecipesComponent implements OnInit {
-  selectedRecipe: Recipe;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+export class RecipesComponent  {
 }
