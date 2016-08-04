@@ -27,7 +27,7 @@ export class TemplateDrivenComponent {
 
   onSubmit(form: NgForm){
     //console.log('It Works!');
-    //console.log(form);
+    console.log(form);
     //console.log(this.user);
     console.log(form.value);
   }
