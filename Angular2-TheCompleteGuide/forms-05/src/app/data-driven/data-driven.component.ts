@@ -11,7 +11,11 @@ import {
   FormBuilder,
 } from '@angular/forms';
 
-import { emailPattern } from '../pattern/email-pattern';
+import { emailPattern
+} from '../pattern/email-pattern';
+
+import { Observable
+} from "rxjs/Rx";
 
 @Component({
     moduleId:    module.id,
@@ -30,7 +34,7 @@ export class DataDrivenComponent {
           'username': new FormControl('Max', Validators.required),
           'email':    new FormControl('', [
             Validators.required,
-            Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
+            Validators.pattern(emailPatter)
           ]),
         }),
         'password': new FormControl('', Validators.required),
@@ -45,14 +49,25 @@ export class DataDrivenComponent {
 
       this.myForm = formBuilder.group({
         'userData': formBuilder.group({
-          'username': ['Max', Validators.required],
-          'email':    ['', [ Validators.required, Validators.pattern(emailPattern)]
-          ],
+          'username': ['Max', [Validators.required, this.exampleValidator]],
+          'email':    ['', [ Validators.required, Validators.pattern(emailPattern)]],
         }),
         'password': ['', Validators.required],
         'gender':   ['male'],
-        'hobbies':  formBuilder.array(['Cooking', Validators.required]),
+        'hobbies':  formBuilder.array([
+          ['Cooking', Validators.required, this.asyncExampleValidator],
+        ]),
       });
+
+      // Listen to value changes
+      this.myForm.valueChanges.subscribe(
+        (data: any) => console.log(data)
+      );
+
+      // Listen to status changes of your form, ie invalid, pending valide
+      this.myForm.statusChanges.subscribe(
+        (data: any) => console.log(data)
+      )
 
     }
 
@@ -61,6 +76,31 @@ export class DataDrivenComponent {
     }
 
     onAddHobby() {
-      (<FormArray>this.myForm.find('hobbies')).push(new FormControl('', Validators.required))
+      (<FormArray>this.myForm.find('hobbies')).push(new FormControl('', Validators.required, this.asyncExampleValidator))
     }
+
+    // Custom validator
+    exampleValidator(control: FormControl): {[s: string]: boolean} {
+      if (control.value === 'Example') { // if validation fail
+        return {example: true};
+      }
+      return null;
+    }
+
+    asyncExampleValidator(control: FormControl): Promise<any> | Observable<any> {
+      const promise = new Promise<any>(
+        (resolve, reject) => {
+          setTimeout(() => {
+            if (control.value === 'Example') {
+              resolve({'invalid': true});
+            } else {
+              resolve(null);
+            }
+          }, 1500)
+        }
+      );
+      return promise;
+
+    }
+
 }
