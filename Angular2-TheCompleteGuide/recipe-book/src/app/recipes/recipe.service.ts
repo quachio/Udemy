@@ -6,7 +6,7 @@ import { Ingredient } from '../shared';
 @Injectable()
 export class RecipeService {
     private recipes: Recipe[] = [
-    new Recipe('Schnitzel', 'Very tasty', 'https://eat24-files-live.s3.amazonaws.com/cuisines/v4/healthy-foods.jpg?Signature=ffVh5d2Qtt3qIOiiQgnh3kS3xoM%3D&Expires=1469838452&AWSAccessKeyId=AKIAIEJ2GCCJRT63TBYA', [
+    new Recipe('Schnitzel', 'Very tasty', 'http://barcodedc.com/wp-content/gallery/food/healthfitnessrevolution-com.jpg', [
       new Ingredient('French Fries', 2),
       new Ingredient('Pork Meat', 1)
     ]),
